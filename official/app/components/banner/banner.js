@@ -8,15 +8,11 @@ let Banner=React.createClass({
 		return(
             <div>
                <div className="banner" id='banner'>
+                  <Lunbo />
                </div>
             </div>
 			)
 	}
 });
-
-ReactDOM.render(
-      <Lunbo />,
-      document.getElementById('banner')
-	)
 
 export default Banner;

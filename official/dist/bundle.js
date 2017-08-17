@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "40aa01abb9729b3ab645"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5b1e8ca6c1ba180cd6aa"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -24206,7 +24206,7 @@ module.exports = function (css) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+   value: true
 });
 
 var _react = __webpack_require__(24);
@@ -24226,17 +24226,19 @@ var _index2 = _interopRequireDefault(_index);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Banner = _react2.default.createClass({
-  displayName: 'Banner',
-  render: function render() {
-    return _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement('div', { className: 'banner', id: 'banner' })
-    );
-  }
+   displayName: 'Banner',
+   render: function render() {
+      return _react2.default.createElement(
+         'div',
+         null,
+         _react2.default.createElement(
+            'div',
+            { className: 'banner', id: 'banner' },
+            _react2.default.createElement(_index2.default, null)
+         )
+      );
+   }
 });
-
-_reactDom2.default.render(_react2.default.createElement(_index2.default, null), document.getElementById('banner'));
 
 exports.default = Banner;
 
@@ -24295,8 +24297,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Lunbo = _react2.default.createClass({
   displayName: 'Lunbo',
 
-  IMAGE_DATA: function IMAGE_DATA() {
-    return [{
+
+  getInitialState: function getInitialState() {
+    var IMAGE_DATA = [{
       src: __webpack_require__(55),
       alt: 'images-1'
     }, {
@@ -24306,10 +24309,11 @@ var Lunbo = _react2.default.createClass({
       src: __webpack_require__(55),
       alt: 'images-3'
     }];
+    return IMAGE_DATA;
   },
   render: function render() {
     return _react2.default.createElement(_Slider2.default, {
-      items: IMAGE_DATA,
+      items: { IMAGE_DATA: this.state.IMAGE_DATA },
       speed: 1.2,
       delay: 2.1,
       pause: true,
