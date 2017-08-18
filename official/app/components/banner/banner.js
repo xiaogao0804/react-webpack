@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import './banner.less'
 import Lunbo from '../slider/index'
 
