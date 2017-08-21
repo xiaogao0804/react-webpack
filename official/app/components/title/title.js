@@ -4,7 +4,7 @@ import './title.less'
 let Title=React.createClass({
 	render(){
 		return(
-             <h2>明星系列</h2>
+             <h2>{this.props.name}</h2>
 			)
 	}
 });
