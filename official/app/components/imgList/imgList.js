@@ -23,10 +23,9 @@ let List=React.createClass({
 		return ( 
 		  
              <ul className='img-list clearFix'>
-               {
-                 test(that)
-               }
-                
+	               {
+	                 test(that)
+	               }
              </ul>
 			)
 	}
