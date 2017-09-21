@@ -10,7 +10,7 @@ let Header=React.createClass({
        	 <div className="contain">
             <div className="header" id='header'>
                   <i className="fa fa-navicon"></i>
-	            <span>九门坊</span>
+	            <span>啦啦啦</span>
             </div>
        	 </div>	         
        	);

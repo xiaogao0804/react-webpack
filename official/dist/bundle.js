@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "05143c3b90629ffcddc3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "105ce5e49d260a997958"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -11116,7 +11116,7 @@ var Header = _react2.default.createClass({
                         _react2.default.createElement(
                               'span',
                               null,
-                              '\u4E5D\u95E8\u574A'
+                              '\u5566\u5566\u5566'
                         )
                   )
             );
@@ -11133,7 +11133,7 @@ exports.default = Header;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react = __webpack_require__(7);
@@ -11150,16 +11150,24 @@ var _bar2 = _interopRequireDefault(_bar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//var arrBar=['全部','辣口味','不辣口味']
+
 var Second = _react2.default.createClass({
-  displayName: 'Second',
-  render: function render() {
-    return _react2.default.createElement(
-      'div',
-      { className: 'second' },
-      _react2.default.createElement(_header2.default, null),
-      _react2.default.createElement(_bar2.default, null)
-    );
-  }
+    displayName: 'Second',
+    getInitialState: function getInitialState() {
+        return {
+            arrBar: ['全部', '辣口味', '不辣口味'] //给父组件设置初始值为父组件的数据
+        };
+    },
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            { className: 'second' },
+            _react2.default.createElement(_header2.default, null),
+            _react2.default.createElement(_bar2.default, { arrBar: this.state.arrBar }),
+            '      /*\u628A\u9700\u8981\u4F20\u9012\u7684\u6570\u636E\u5199\u5728\u7236\u7EC4\u4EF6\u4E0A*/'
+        );
+    }
 });
 
 exports.default = Second;
@@ -24396,31 +24404,32 @@ __webpack_require__(206);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var arrBar = ['全部', '辣口味', '不辣口味'];
-
 var Bar = _react2.default.createClass({
     displayName: 'Bar',
     getInitialState: function getInitialState() {
         return {
-            value: '全部',
-            isShow: false //显示隐藏的自定义属性初始化为false，false为隐藏，true为显示
+            isShow: false, //显示隐藏的自定义属性初始化为false，false为隐藏，true为显示
+            value: this.props.arrBar[0]
         };
     },
-    handleChange: function handleChange() {
+    handleChange: function handleChange(ev) {
         this.setState({
-            isShow: !this.state.isShow //设置点击事件时，自定义属性的状态，点击一次，状态是上一次状态的反向状态
+            isShow: !this.state.isShow, //设置点击事件时，自定义属性的状态，点击一次，状态是上一次状态的反向状态
+            value: ev.target.innerText
         });
     },
     render: function render() {
+        var _this = this;
+        //console.log(this.props)    //查看父组件传递给子组件数据
         return _react2.default.createElement(
             'div',
             null,
             _react2.default.createElement(
                 'div',
-                { className: 'barWrap clearfix' },
+                { className: 'barWrap clearfix', onClick: this.handleChange },
                 _react2.default.createElement(
                     'div',
-                    { className: 'bar1', onClick: this.handleChange },
+                    { className: 'bar1' },
                     this.state.value
                 ),
                 _react2.default.createElement('i', { className: 'fa fa-angle-down fa-2x' })
@@ -24428,15 +24437,15 @@ var Bar = _react2.default.createClass({
             _react2.default.createElement(
                 'ul',
                 { className: this.state.isShow ? 'barUl' : 'barUl ' + 'hide' },
-                arrBar.map(function (item, i) {
+                this.props.arrBar.map(function (item, i) {
                     console.log(item);
                     return _react2.default.createElement(
                         'li',
-                        { key: i },
+                        { onClick: _this.handleChange, key: i },
                         item,
                         ' ',
                         _react2.default.createElement('i', { className: 'fa fa-angle-down fa-2x' })
-                    );
+                    ); //li元素被function包裹，所以这里的this指向的不是组件，所以需要在外边保存一下this
                 })
             )
         );
