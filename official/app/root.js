@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+//import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import First from './components/first.js'
 import Second from './components/second.js'
+//import createHashHistory from 'history/createBrowserHistory'
+//export const history = createHashHistory()
+
 //import { createHistory, useBasename } from 'history'
 /*
   const history = useBasename(createHistory)({
@@ -11,12 +14,15 @@ import Second from './components/second.js'
                                                                                                                                                                                                                                                                                                                            
 
 ReactDOM.render((	 
-        <Router>
-           <Switch>
+       /* <Router>
+             <Switch>
  			 <Route path="/" component={First}></Route>
          	 <Route path="/second" component={Second}></Route>
-           </Switch>
-        </Router>),
+             </Switch>
+        </Router>*/
+       <Second/>
+
+       ),
 
 	document.getElementById('root')
 );

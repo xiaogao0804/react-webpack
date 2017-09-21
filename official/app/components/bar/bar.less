@@ -1,12 +1,40 @@
+.barWrap{
+  position: relative;
+  .bar1{
+    width:100%;
+    padding:0.1rem 0;
+    border-bottom:1px solid #000;
+    background-color: #ccc;
+    text-indent: 0.2rem;
+    cursor: pointer;
+  }
+  .fa-angle-down{
+    position: absolute;
+    right:0.3rem;
+    top:0.1rem;
+  }
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
 .barUl{
 	width:100%;
 	height:1rem;
-	border:1px solid #000;
 	li{
 		width: 100%;
-		border:1px solid #000;
+		border-bottom:1px solid #000;
 		background-color: #ccc;
 		padding:0.1rem 0;
-		color: #fff;
+		text-indent: 0.2rem;
+    position: relative;
+    cursor: pointer;
+    .fa-angle-down{
+      position: absolute;
+      right:0.3rem;
+      top:0.1rem;
+    }
 	}
 }
