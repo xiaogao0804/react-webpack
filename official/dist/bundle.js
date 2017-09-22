@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "34586a2e3a003beaf507"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8c007ab6373c13bc6bf7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -11170,19 +11170,20 @@ var Second = _react2.default.createClass({
             taste: ""
         };
     },
-    handleTaste: function handleTaste(vala) {
+    handleTaste: function handleTaste(val) {
+        //子组件调用的方法
         this.setState({
-            taste: vala
+            taste: val
         });
     },
     render: function render() {
-        console.log(this.state.taste); //子组件传递过来的值
+        console.log(this.state.taste); //子组件传递过来的值，全部，辣口味，不辣口味
         return _react2.default.createElement(
             'div',
             { className: 'second' },
             _react2.default.createElement(_header2.default, null),
             _react2.default.createElement(_bar2.default, { arrBar: this.state.arrBar, handleTaste: this.handleTaste }),
-            _react2.default.createElement(_imgList2.default, { arr: arr2 })
+            this.state.taste == "辣口味" ? _react2.default.createElement(_imgList2.default, { arr: arr2 }) : this.state.taste == "不辣口味" ? _react2.default.createElement(_imgList2.default, { arr: arr3 }) : _react2.default.createElement(_imgList2.default, { arr: arr1 })
         );
     }
 });

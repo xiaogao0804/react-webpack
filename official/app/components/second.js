@@ -37,12 +37,12 @@ let Second=React.createClass({
         })
     },
 	render(){
-        console.log(this.state.taste)   //子组件传递过来的值
+        console.log(this.state.taste)   //子组件传递过来的值，全部，辣口味，不辣口味
 		return (
               <div className="second">
                   <Header/>
-                  <Bar arrBar={this.state.arrBar} handleTaste={this.handleTaste}/>  /*将父组件方法以属性的形式写子组将上，供子组件调用，和子组件调用父组件的数据和属性一个方法*/
-                  <List arr={arr2}/>
+                  <Bar arrBar={this.state.arrBar} handleTaste={this.handleTaste}/>
+                  {(this.state.taste=="辣口味")?<List arr={arr2}/>:(this.state.taste=="不辣口味")?<List arr={arr3}/>:<List arr={arr1}/>}  /*条件判断哪种口味显示哪种图片，js部分一定要用{}括起来*/
               </div>
 			)
 	}
