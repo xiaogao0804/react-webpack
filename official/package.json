@@ -4,7 +4,10 @@
   "description": "jiumenfang  website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build",
+    "start": "node dev_server.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +28,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -34,12 +39,14 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "node-sass": "^4.5.3",
+    "open-browser-webpack-plugin": "0.0.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.2",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.11.2",
+    "webpack-hot-middleware": "^2.22.2"
   }
 }
