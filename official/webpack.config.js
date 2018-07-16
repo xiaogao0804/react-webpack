@@ -25,28 +25,28 @@ module.exports={
            },
            {
            	test:/\.css$/,
-           	//loader:'style!css'
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader'
-              })
+           	loader:'style!css'
+            // use: ExtractTextPlugin.extract({
+            //     fallback: 'style-loader',
+            //     use: 'css-loader'
+            //   })
            },
            {
            	test:/\.less$/,
-           	//loader:'style-loader!css-loader!less-loader'
+           	loader:'style-loader!css-loader!less-loader'
             //loader:ExtractTextPlugin.extract('style-loader!css-loader!less-loader')
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'less-loader']
-              })
+            // use: ExtractTextPlugin.extract({
+            //     fallback: 'style-loader',
+            //     use: ['css-loader', 'less-loader']
+            //   })
            },
            {
             test:/\.scss$/,
-            //loader:'style-loader!css-loader!sass-loader'
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
-              })
+            loader:'style-loader!css-loader!sass-loader'
+            // use: ExtractTextPlugin.extract({
+            //     fallback: 'style-loader',
+            //     use: ['css-loader', 'sass-loader']
+            //   })
            },
            {
             test:/\.(png|jpg)$/,
@@ -73,15 +73,15 @@ module.exports={
         new OpenBrowserPlugin({ url: 'http://localhost:8099' }),
 
        // 复制publicCss文件到dist
-       new CopyWebpackPlugin([{      
-         from: __dirname + '/publicCss'
-      }]),
+         new CopyWebpackPlugin([{      
+           from: __dirname + '/publicCss'
+        }]),
 
        //每次打包的时候先清除掉dist文件
         //new cleanWebpackPlugin('./dist'),
 
         //将css文件打包到main.css
-        new ExtractTextPlugin('main.css')
+        //new ExtractTextPlugin('main.css')
 
 
     ],
